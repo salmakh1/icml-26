@@ -6,7 +6,8 @@
 
 ![Mean Return Curve](./Additional_experiment_on_LBF.png)
 
-The figure above shows the training performance in terms of **mean episodic return** over time (timesteps) on the **Foraging-8x8-4p-3f-v3** environment.
+
+The figure above shows the training performance in terms of **mean episodic return** over time (timesteps) on the **Foraging-8x8-4p-3f-v3** environment from the **LBF (Level-Based Foraging)** benchmark.
 
 We compare three methods:
 - **LIMARL (red)** — *our proposed method*
@@ -26,9 +27,9 @@ We compare three methods:
 
 ## 🧠 Environment Description
 
-### Foraging-8x8-4p-3f-v3
+### LBF: Level-Based Foraging (Foraging-8x8-4p-3f-v3)
 
-This experiment is conducted in a **cooperative multi-agent gridworld** environment.
+This experiment is conducted in the **LBF (Level-Based Foraging)** environment, a widely used **cooperative multi-agent reinforcement learning benchmark**.
 
 #### 📐 Setup
 - **Grid size:** 8 × 8  
@@ -37,13 +38,16 @@ This experiment is conducted in a **cooperative multi-agent gridworld** environm
 - **Environment type:** Cooperative, partially observable  
 
 #### ⚙️ Dynamics
+- Each agent is assigned a **level**.
+- Food items also have **levels**.
 - Agents can move in four directions or stay in place.
-- Food items are randomly distributed across the grid.
-- Some food requires **multiple agents to cooperate** for collection.
+- To collect food:
+  - The **sum of agent levels** must meet or exceed the food level.
+  - This enforces **coordination between agents**.
 - Rewards are:
   - **Shared among all agents**
-  - Granted when food is successfully collected
-- Each agent has **limited local observation**, making coordination necessary.
+  - Proportional to successful food collection
+- Each agent has **limited local observations**, making coordination non-trivial.
 
 ---
 
@@ -65,3 +69,4 @@ This experiment is conducted in a **cooperative multi-agent gridworld** environm
 ## 📌 Summary
 
 LIMARL consistently outperforms baseline methods in early and mid training stages, demonstrating superior **sample efficiency** and **stability**, while achieving competitive final performance.
+
