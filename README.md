@@ -4,7 +4,7 @@
 
 ### Mean Return on Foraging (8x8, 4p, 3f)
 
-![Mean Return Curve](./W&B%20Chart%203_31_2026,%202_18_40%20PM.png)
+![Mean Return Curve](./Additional_experiment_on_LBF.png)
 
 The figure above shows the training performance in terms of **mean episodic return** over time (timesteps) on the **Foraging-8x8-4p-3f-v3** environment.
 
